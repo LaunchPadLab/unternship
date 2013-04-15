@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  organization_name: MyString
+  organization_url: MyString
+  contact_name: MyString
+  email: MyString
+  organization_description: MyText
+  title: MyString
+  deadline: 2013-04-14 12:05:37
+  details: MyText
+  wufoo_link: MyString
+
+two:
+  organization_name: MyString
+  organization_url: MyString
+  contact_name: MyString
+  email: MyString
+  organization_description: MyText
+  title: MyString
+  deadline: 2013-04-14 12:05:37
+  details: MyText
+  wufoo_link: MyString

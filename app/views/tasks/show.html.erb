@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Organization name:</b>
+  <%= @task.organization_name %>
+</p>
+
+<p>
+  <b>Organization url:</b>
+  <%= @task.organization_url %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @task.contact_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @task.email %>
+</p>
+
+<p>
+  <b>Organization description:</b>
+  <%= @task.organization_description %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @task.title %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @task.deadline %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @task.details %>
+</p>
+
+<p>
+  <b>Wufoo link:</b>
+  <%= @task.wufoo_link %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

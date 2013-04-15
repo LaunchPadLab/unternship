@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  task_id: 1
+  applicant_id: 1
+  rating: 1
+  review: MyText
+
+two:
+  task_id: 1
+  applicant_id: 1
+  rating: 1
+  review: MyText

@@ -1,0 +1,33 @@
+<div class="row projects">
+	<div class="twelve columns">
+	  <h2 class="projects_header">Find a project</h2>
+    <table class="projects twelve">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Details</th>
+          <th>Organization</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Task</td>
+          <td>Details</td>
+          <td>Organization Name</td>
+          <td><%= link_to 'Details', '', class: 'button' %></td>
+        </tr>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.details %></td>
+        <td><%= task.organization_name %></td>
+        <td><%= link_to 'Details', task, class: 'button' %></td>
+      </tr>
+    <% end %>
+      </tbody>
+    </table>
+    
+	</div>
+</div>
