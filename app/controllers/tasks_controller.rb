@@ -14,6 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
+    @applicant = Applicant.new()
 
     respond_to do |format|
       format.html # show.html.erb

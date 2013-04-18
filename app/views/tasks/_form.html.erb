@@ -1,8 +1,8 @@
 <%= form_for(@task, html: { class: 'nine columns' }) do |f| %>
+
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
       <ul>
       <% @task.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -14,7 +14,7 @@
   <fieldset>
     
     <div class="row">
-      <div class="small-8">
+      <div class="columns">
         <div class="row">
           <div class="small-3 columns">
             <label for="task_organization_name" class="right inline">Organization Name</label>
@@ -52,7 +52,7 @@
             <label for="task_organization_description" class="right inline">Organization Description</label>
           </div>
           <div class="small-9 columns">
-            <%= f.text_area :organization_description, placeholder: 'Please provide up to 5 sentence overview of what you do.' %>
+            <%= f.text_area :organization_description, placeholder: 'Please provide up to 5 sentence overview of what you do.', rows: 5 %>
           </div>
         </div>
         <div class="row">

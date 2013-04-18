@@ -1,4 +1,4 @@
-<%= form_for(@applicant) do |f| %>
+<%= form_for(@applicant, html: { class: 'custom' }) do |f| %>
   <% if @applicant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
@@ -10,28 +10,56 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :current_role %><br />
-    <%= f.text_field :current_role %>
-  </div>
-  <div class="field">
-    <%= f.label :job_seeker %><br />
-    <%= f.check_box :job_seeker %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <fieldset>
+    
+    <div class="row">
+      <div class="columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="applicant_name" class="right inline">Name</label>
+          </div>
+          <div class="small-9 columns">
+            <%= f.text_field :name, placeholder: 'Amy Ryan' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="applicant_email" class="right inline">Email</label>
+          </div>
+          <div class="small-9 columns">
+            <%= f.text_field :email, placeholder: 'amy.ryan@gmail.com' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="applicant_current_role" class="right inline">Current Role</label>
+          </div>
+          <div class="small-9 columns">
+            <%= f.text_field :current_role, placeholder: 'Stanford University' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="applicant_job_seeker" class="inline">Job seeker?</label>
+          </div>
+          <div class="small-9 columns">
+            <%= f.text_field :job_seeker %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="applicant_content" class="right inline">Why are you a good fit?</label>
+          </div>
+          <div class="small-9 columns">
+            <%= f.text_area :content %>
+          </div>
+        </div>
+        <%= f.hidden_field :task_id, value: @task.id %>
+        <div class="row">
+          <%= f.submit 'Submit application', class: 'button large expand', id: 'task_submit' %>
+        </div>
+      </div>
+    </div> 
+  </fieldset>
 <% end %>

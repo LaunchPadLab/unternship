@@ -7,22 +7,17 @@
           <th>Task</th>
           <th>Details</th>
           <th>Organization</th>
+          <th>Assignment</th>
           <th></th>
         </tr>
       </thead>
-
       <tbody>
-        <tr>
-          <td>Task</td>
-          <td>Details</td>
-          <td>Organization Name</td>
-          <td><%= link_to 'Details', '', class: 'button' %></td>
-        </tr>
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.title %></td>
         <td><%= task.details %></td>
         <td><%= task.organization_name %></td>
+        <td><%= collection_select :assignment, :id, task.assignments, :id, :email, prompt: true %></td>
         <td><%= link_to 'Details', task, class: 'button' %></td>
       </tr>
     <% end %>

@@ -1,50 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="row projects">
+	<div class="large-12 columns">
+	  <h2 class="projects_header"><%= @task.title %></h2>
 
-<p>
-  <b>Organization name:</b>
-  <%= @task.organization_name %>
-</p>
-
-<p>
-  <b>Organization url:</b>
-  <%= @task.organization_url %>
-</p>
-
-<p>
-  <b>Contact name:</b>
-  <%= @task.contact_name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @task.email %>
-</p>
-
-<p>
-  <b>Organization description:</b>
-  <%= @task.organization_description %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @task.title %>
-</p>
-
-<p>
-  <b>Deadline:</b>
-  <%= @task.deadline %>
-</p>
-
-<p>
-  <b>Details:</b>
-  <%= @task.details %>
-</p>
-
-<p>
-  <b>Wufoo link:</b>
-  <%= @task.wufoo_link %>
-</p>
+    <p>Organization | <%= link_to @task.organization_name, @task.organization_url %></p>
+    <p>Deadline | <%= @task.deadline %></p>
+    
+    <div class="large-7 columns">
+      <div class="task_detail_container">  
+        <p class="task_detail_header">Details:</p>
+        <p><%= @task.details %></p>
+      </div>
+      <p><%= link_to 'Apply now!', '#', class: 'button right', id: 'apply' %></p>
+      <p><%= link_to 'Back to list', tasks_url, class: 'button secondary' %></p>
+      
+      <div class="applicant_container hide columns">
+        <h2 class="projects_header">Glad you're interested.</h2>
+        <p class="green">Please enter some information about yourself.</p>
+        <%= render 'applicants/form' %>
+      </div>
+      
+    </div>
+        
+	</div>
+</div>
 
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<script>
+
+  (function(){
+    
+    $('a#apply').on('click', function(e){
+      
+      $('div.applicant_container').slideDown();
+      $('input#applicant_name').focus();
+      e.preventDefault();
+    })
+    
+    
+  })()
+
+
+
+</script>

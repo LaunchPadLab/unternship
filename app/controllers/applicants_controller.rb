@@ -41,10 +41,11 @@ class ApplicantsController < ApplicationController
   # POST /applicants.json
   def create
     @applicant = Applicant.new(params[:applicant])
+    @applicant.assignments.build(task_id: @applicant.task_id, accepted: false)
 
     respond_to do |format|
       if @applicant.save
-        format.html { redirect_to @applicant, notice: 'Applicant was successfully created.' }
+        format.html { redirect_to tasks_url, notice: 'Applicant was successfully created.' }
         format.json { render json: @applicant, status: :created, location: @applicant }
       else
         format.html { render action: "new" }

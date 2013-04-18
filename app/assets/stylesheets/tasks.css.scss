@@ -37,3 +37,19 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background: $dark-grey;
 }
+
+//SHOW
+
+div.task_detail_container {
+	background: #c3c3c3;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+p.task_detail_header {
+	color: white;
+}
+
+p.green {
+	color: $green;
+}
