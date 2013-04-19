@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419030257) do
+ActiveRecord::Schema.define(:version => 20130419125543) do
 
   create_table "applicants", :force => true do |t|
     t.string   "name"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(:version => 20130419030257) do
     t.string   "title"
     t.datetime "deadline"
     t.text     "details"
-    t.string   "wufoo_link"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.boolean  "completed"
+    t.string   "file"
   end
 
 end

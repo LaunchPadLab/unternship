@@ -7,6 +7,7 @@
           <th>Task</th>
           <th>Details</th>
           <th>Organization</th>
+          <th>File</th>
           <th>Assignment</th>
           <th></th>
         </tr>
@@ -17,6 +18,7 @@
         <td><%= link_to task.title, task %></td>
         <td><%= task.details %></td>
         <td><%= task.organization_name %></td>
+        <td><%= task.file_url ? link_to('File', task.file_url) : 'None' %></td>
         <% if task.assigned? %>
           <td><%= task.accepted_assignment.applicant.email %></td>
           <% if task.completed %>

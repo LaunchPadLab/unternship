@@ -1,4 +1,4 @@
-<%= form_for(@task, html: { class: 'nine columns' }) do |f| %>
+<%= form_for(@task, html: { class: 'nine columns', multipart: true }) do |f| %>
 
   <fieldset>
   
@@ -85,11 +85,7 @@
             <label for="task_wufoo_link" class="right inline">Attach a file</label>
           </div>
           <div class="small-9 columns">
-            <form id="form44" name="form44" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate
-            action="https://pepy.wufoo.com/forms/r7p3p1/#public">
-              <input id="Field1" name="Field1" type="file" class="field file" size="12" tabindex="1" />
-              <input type="hidden" id="idstamp" name="idstamp" value="r8KxIRUnKrlbYQCa5fSUXtRdGJ5w7N6F3t1YsIYqAs4=" />
-            </form>
+            <%= f.file_field :file %>
             <br/><br/><br/>
             <p>Once someone has chosen your project, you will be informed that your task has been assigned and the person will be able to download any documents you have uploaded. When the final deliverable has been submitted, it will be sent to the email address you provided above.  You will also receive a survey to rate the user's work and submit a minimum of a 1-sentence line of feedback.</p>
           </div>
