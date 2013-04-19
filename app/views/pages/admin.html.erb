@@ -1,6 +1,6 @@
 <div class="row projects">
 	<div class="large-12 columns">
-	  <h2 class="projects_header">Find a project</h2>
+	  <h2 class="projects_header">Current projects</h2>
     <table class="projects large-12">
       <thead>
         <tr>
@@ -14,11 +14,23 @@
       <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.title %></td>
+        <td><%= link_to task.title, task %></td>
         <td><%= task.details %></td>
         <td><%= task.organization_name %></td>
-        <td><%= collection_select :assignment, :id, task.assignments, :id, :email, prompt: true %></td>
-        <td><%= link_to 'Details', task, class: 'button' %></td>
+        <% if task.assigned? %>
+          <td><%= task.accepted_assignment.applicant.email %></td>
+          <% if task.completed %>
+            <td>Completed</td>
+          <% else %>
+            <td><%= link_to 'Details', task.accepted_assignment, class: 'button' %></td>
+          <% end %>
+        <% else %>
+          <%= form_tag(assignment_update_url) do %>
+          <td><%= collection_select :assignment, :id, task.assignments, :id, :email, prompt: true %></td>
+          <%= hidden_field_tag 'assignment[accepted]', value: true %>
+          <td><%= submit_tag 'Assign', class: 'button' %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
       </tbody>

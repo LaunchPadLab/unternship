@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
   
   def admin
-    @tasks = Task.includes(:assignments)
+    @tasks = Task.includes(:assignments).incomplete_first
 
     respond_to do |format|
       format.html # index.html.erb
