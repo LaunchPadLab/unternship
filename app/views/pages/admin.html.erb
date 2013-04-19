@@ -20,7 +20,7 @@
         <% if task.assigned? %>
           <td><%= task.accepted_assignment.applicant.email %></td>
           <% if task.completed %>
-            <td>Completed</td>
+            <td><%= link_to 'Completed', task.accepted_assignment %></td>
           <% else %>
             <td><%= link_to 'Details', task.accepted_assignment, class: 'button' %></td>
           <% end %>

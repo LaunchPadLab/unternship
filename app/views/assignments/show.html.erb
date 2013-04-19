@@ -16,7 +16,7 @@
         <p>Rating: <%= f.text_field :rating, class: 'small-1 inline' %></p>
         <p>Review: <%= f.text_area :review %></p>
         
-        <p>Completed? <%= f.check_box :completed %></p>
+        <p>Completed? <%= f.check_box :completed, checked: @assignment.task.completed %></p>
         
         <%= f.submit nil, class: 'button' %>
       
