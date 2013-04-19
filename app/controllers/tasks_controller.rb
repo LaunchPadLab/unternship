@@ -45,7 +45,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @task, notice: 'Thanks for submitting this task. You should receive an email confirmation shortly.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }

@@ -45,7 +45,7 @@ class ApplicantsController < ApplicationController
 
     respond_to do |format|
       if @applicant.save
-        format.html { redirect_to tasks_url, notice: 'Applicant was successfully created.' }
+        format.html { redirect_to tasks_url, notice: 'Thanks for applying! You should receive an email confirmation soon.' }
         format.json { render json: @applicant, status: :created, location: @applicant }
       else
         format.html { render action: "new" }

@@ -14,6 +14,21 @@
   <% end %>
   
   <div class="container">
+    
+    <div class="row large-12 columns">
+      <% if flash[:error] %>
+        <%= content_tag :div, :id => "flash_name", :class => "alert-box error" do %>
+          <%= flash[:error] %>
+        <% end %>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <%= content_tag :div, :id => "flash_name", :class => "alert-box success" do %>
+          <%= flash[:notice] %>
+        <% end %>
+      <% end %>
+    </div>
+    
     <%= yield %>
   </div>
   
