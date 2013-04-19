@@ -46,6 +46,11 @@
         </div>
         <%= f.hidden_field :task_id, value: @task.id %>
         <div class="row">
+          <div class="small-3 columns"></div>
+          <div class="small-9 columns">
+            <span class="submit_waiting hide">Applying. Please wait. <%= image_tag 'loading.gif' %></span>
+            <br/><br/>
+          </div>
           <%= f.submit 'Submit application', class: 'button large expand', id: 'task_submit' %>
         </div>
       </div>
@@ -63,6 +68,12 @@
        var height = $(this).css('height').replace('px', '');
        var newHeight = (ele.scrollHeight > height ? ele.scrollHeight : height);
        ele.style.height = newHeight.toString() + 'px';
+    });
+    
+    $('form').on('submit', function(){
+      
+      $('span.submit_waiting').slideDown();
+      
     });
     
   })();

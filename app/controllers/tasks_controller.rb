@@ -45,6 +45,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        SiteMailer.new_task(@task).deliver
         format.html { redirect_to @task, notice: 'Thanks for submitting this task. You should receive an email confirmation shortly.' }
         format.json { render json: @task, status: :created, location: @task }
       else
