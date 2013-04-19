@@ -67,11 +67,11 @@ module Unternship
     config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'unternship.com',
+      :domain               => 'baci.lindsaar.net',
       :user_name            => ENV['username'],
       :password             => ENV['password'],
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
-    
+  
   end
 end
