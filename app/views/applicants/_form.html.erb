@@ -1,15 +1,4 @@
 <%= form_for(@applicant, html: { class: 'custom' }) do |f| %>
-  <% if @applicant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
-
-      <ul>
-      <% @applicant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   
   <fieldset>
     
@@ -36,15 +25,15 @@
             <label for="applicant_current_role" class="right inline">Current Role</label>
           </div>
           <div class="small-9 columns">
-            <%= f.text_field :current_role, placeholder: 'Stanford University' %>
+            <%= f.text_field :current_role, placeholder: 'Student at Stanford University' %>
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
-            <label for="applicant_job_seeker" class="inline">Job seeker?</label>
-          </div>
-          <div class="small-9 columns">
-            <%= f.text_field :job_seeker %>
+          <div class="small-12 columns">
+            <label for="task_job_seeker" class="label_checkbox">
+              Job seeker?
+              <span class="check_box"><%= f.check_box :job_seeker %></span>
+            </label>
           </div>
         </div>
         <div class="row">
@@ -52,7 +41,7 @@
             <label for="applicant_content" class="right inline">Why are you a good fit?</label>
           </div>
           <div class="small-9 columns">
-            <%= f.text_area :content %>
+            <%= f.text_area :content, placeholder: "Tell us a bit about yourself" %>
           </div>
         </div>
         <%= f.hidden_field :task_id, value: @task.id %>
@@ -63,3 +52,19 @@
     </div> 
   </fieldset>
 <% end %>
+
+<script>
+
+  (function(){
+
+    $('form').on('keyup', 'textarea', function(){
+       var ele = this;
+       ele.style.height = 'auto';
+       var height = $(this).css('height').replace('px', '');
+       var newHeight = (ele.scrollHeight > height ? ele.scrollHeight : height);
+       ele.style.height = newHeight.toString() + 'px';
+    });
+    
+  })();
+
+</script>

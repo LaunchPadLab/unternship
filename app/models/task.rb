@@ -6,4 +6,7 @@ class Task < ActiveRecord::Base
   #Associations
   has_many :assignments
   
+  #Validation
+  validates :organization_name, :organization_url, :contact_name, :email, :organization_description, :title, :deadline, :details, presence: true
+  
 end

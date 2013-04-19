@@ -1,26 +1,25 @@
 <%= form_for(@task, html: { class: 'nine columns' }) do |f| %>
 
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <fieldset>
-    
+  
     <div class="row">
       <div class="columns">
+        <% if @task.errors.any? %>
+          <div class="row">
+            <div class="small-12 columns">
+              <small class="error"><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</small>
+              <% @task.errors.full_messages.each do |msg| %>
+                <p><%= msg %></p>
+              <% end %>
+            </div>
+          </div>      
+        <% end %>
         <div class="row">
           <div class="small-3 columns">
             <label for="task_organization_name" class="right inline">Organization Name</label>
           </div>
           <div class="small-9 columns">
-            <%= f.text_field :organization_name, placeholder: 'Oxfam' %>
+            <%= f.text_field :organization_name, autofocus: true, placeholder: 'Oxfam' %>
           </div>
         </div>
         <div class="row">
@@ -71,13 +70,14 @@
             <%= f.text_field :deadline, placeholder: 'Select a date' %>
           </div>
         </div>
-        <p>Please describe the final deliverable in detail and describe the process or tools the person should use.  Below you can upload one document the person might need or link to websites they might need to reference, so please describe how they might need to use those in completing the task. Click here for an example (popup link to some samples?)</p>
+
         <div class="row">
           <div class="small-3 columns">
             <label for="task_details" class="right inline">Task Details</label>
           </div>
           <div class="small-9 columns">
-            <%= f.text_area :details, placeholder: 'Select a date' %>
+            <p>Please describe the final deliverable in detail and describe the process or tools the person should use.  Below you can upload one document the person might need or link to websites they might need to reference, so please describe how they might need to use those in completing the task.</p>
+            <%= f.text_area :details, placeholder: 'Please enter some details about this task' %>
           </div>
         </div>
         <div class="row">
@@ -90,13 +90,35 @@
               <input id="Field1" name="Field1" type="file" class="field file" size="12" tabindex="1" />
               <input type="hidden" id="idstamp" name="idstamp" value="r8KxIRUnKrlbYQCa5fSUXtRdGJ5w7N6F3t1YsIYqAs4=" />
             </form>
+            <br/><br/><br/>
+            <p>Once someone has chosen your project, you will be informed that your task has been assigned and the person will be able to download any documents you have uploaded. When the final deliverable has been submitted, it will be sent to the email address you provided above.  You will also receive a survey to rate the user's work and submit a minimum of a 1-sentence line of feedback.</p>
           </div>
         </div>
         <div class="row">
-          <p>Once someone has chosen your project, you will be informed that your task has been assigned and the person will be able to download any documents you have uploaded. When the final deliverable has been submitted, it will be sent to the email address you provided above.  You will also receive a survey to rate the user's work and submit a minimum of a 1-sentence line of feedback.</p>
-        </div>
-        <div class="row">
-          <%= f.submit 'Submit task', class: 'button large expand', id: 'task_submit' %>
+          <%= f.submit nil, class: 'button large expand', id: 'task_submit' %>
         </div>  
   </fieldset>
 <% end %>
+
+<script>
+
+  (function(){
+    
+    $('#task_deadline').datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+    
+    $('form').on('keyup', 'textarea', function(){
+       var ele = this;
+       ele.style.height = 'auto';
+       var height = $(this).css('height').replace('px', '');
+       var newHeight = (ele.scrollHeight > height ? ele.scrollHeight : height);
+       ele.style.height = newHeight.toString() + 'px';
+    });
+    
+  })();
+
+
+
+
+</script>
