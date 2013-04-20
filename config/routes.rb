@@ -12,4 +12,6 @@ Unternship::Application.routes.draw do
   
   post '/assignment_update' => 'assignments#assignment_update', as: :assignment_update
   
+  get '/assignment_profile/:id' => 'assignments#profile', as: :assignment_profile
+  
 end

@@ -23,4 +23,8 @@ class Assignment < ActiveRecord::Base
     end
   end
   
+  def id_and_email
+    "#{id} - #{applicant.email}"
+  end
+  
 end

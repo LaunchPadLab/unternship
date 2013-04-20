@@ -28,7 +28,7 @@
           <% end %>
         <% else %>
           <%= form_tag(assignment_update_url) do %>
-          <td><%= collection_select :assignment, :id, task.assignments, :id, :email, prompt: true %></td>
+          <td><%= collection_select :assignment, :id, task.assignments, :id, 'id_and_email', prompt: true %></td>
           <%= hidden_field_tag 'assignment[accepted]', value: true %>
           <td><%= submit_tag 'Assign', class: 'button' %></td>
           <% end %>

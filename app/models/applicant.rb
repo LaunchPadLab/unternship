@@ -5,5 +5,10 @@ class Applicant < ActiveRecord::Base
   
   #Associations
   has_many :assignments
+  
+  #Instance Method
+  def formatted_job_seeker
+    job_seeker ? 'Yes' : 'No'
+  end
     
 end

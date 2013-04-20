@@ -1,0 +1,20 @@
+<div class="row projects">
+	<div class="large-12 columns">
+	  <h2 class="projects_header"><%= link_to @assignment.task.title, @assignment.task %></h2>
+
+    <p>Organization | <%= link_to @assignment.task.organization_name, @assignment.task.organization_url %></p>
+    <p>Deadline | <%= @assignment.task.formatted_deadline %></p>
+    
+    <div class="large-7 columns">
+      <div class="task_detail_container">  
+        <p class="task_detail_header">Details:</p>
+        <p><%= @assignment.task.details %></p>
+      </div>
+      <p>Applicant Name: <%= @assignment.applicant.name %> (<%= link_to @assignment.applicant.email, "mailto:#{@assignment.applicant.email}" %>)</p>
+      <p>Current_role: <%= @assignment.applicant.current_role %></p>
+      <p>Job seeker? <%= @assignment.applicant.formatted_job_seeker %></p>
+      <p>Content: <%= @assignment.applicant.content %></p>
+    </div>
+        
+	</div>
+</div>

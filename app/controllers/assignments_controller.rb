@@ -32,4 +32,13 @@ class AssignmentsController < ApplicationController
     end
   end
   
+  def profile
+    @assignment = Assignment.find(params[:id], include: [:task, :applicant])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @task }
+    end
+  end
+  
 end

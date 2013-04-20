@@ -41,11 +41,11 @@ class ApplicantsController < ApplicationController
   # POST /applicants.json
   def create
     @applicant = Applicant.new(params[:applicant])
-    @applicant.assignments.build(task_id: @applicant.task_id, accepted: false)
+    @assignment = @applicant.assignments.build(task_id: @applicant.task_id, accepted: false)
 
     respond_to do |format|
       if @applicant.save
-        SiteMailer.new_applicant(@applicant).deliver
+        SiteMailer.new_applicant(@applicant, @assignment).deliver
         format.html { redirect_to tasks_url, notice: 'Thanks for applying! You should receive an email confirmation soon.' }
         format.json { render json: @applicant, status: :created, location: @applicant }
       else
