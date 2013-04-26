@@ -11,7 +11,6 @@ class Task < ActiveRecord::Base
   validates :organization_name, :organization_url, :contact_name, :email, :organization_description, :title, :deadline, :details, presence: true
   
   #Scope
-  scope :incomplete, where(completed: nil)
   scope :incomplete_first, order('completed DESC')
   
   #Uploader
@@ -27,8 +26,16 @@ class Task < ActiveRecord::Base
     assignments.where(accepted: true).length > 0
   end
   
+  def not_assigned?
+    !assigned?
+  end
+  
   def accepted_assignment
     assignments.where(accepted: true).first
+  end
+  
+  def self.unassigned
+    self.order('created_at DESC').keep_if { |task| task.not_assigned? }
   end
   
 end
