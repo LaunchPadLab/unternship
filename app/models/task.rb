@@ -18,6 +18,14 @@ class Task < ActiveRecord::Base
 
   
   #Instance Methods
+  def formated_organization_url
+    if organization_url.match(/http(s*):\/\//).present?
+      organization_url
+    else
+      "http://#{organization_url}"
+    end
+  end
+  
   def formatted_deadline
     deadline.present? ? deadline.strftime('%D') : nil
   end

@@ -2,7 +2,7 @@
 	<div class="large-12 columns">
 	  <h2 class="projects_header"><%= @task.title %></h2>
 
-    <p>Organization | <%= link_to @task.organization_name, @task.organization_url %></p>
+    <p>Organization | <%= link_to @task.organization_name, @task.formated_organization_url %></p>
     <p>Deadline | <%= @task.formatted_deadline %></p>
     
     <div class="large-7 columns">
