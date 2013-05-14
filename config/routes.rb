@@ -10,6 +10,8 @@ Unternship::Application.routes.draw do
   
   get '/admin' => 'pages#admin', as: :admin
   
+  get '/about' => 'pages#about', as: :about
+  
   post '/assignment_update' => 'assignments#assignment_update', as: :assignment_update
   
   get '/assignment_profile/:id' => 'assignments#profile', as: :assignment_profile

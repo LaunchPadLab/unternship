@@ -6,6 +6,10 @@ class PagesController < ApplicationController
     
   end
   
+  def about
+    
+  end
+  
   def admin
     @tasks = Task.includes(:assignments).incomplete_first
 
